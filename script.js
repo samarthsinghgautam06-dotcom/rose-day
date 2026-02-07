@@ -85,6 +85,20 @@ if (loveField) {
   }
 }
 
+const sparkleField = document.getElementById("sparkleField");
+const sparkleCount = 22;
+if (sparkleField) {
+  for (let i = 0; i < sparkleCount; i += 1) {
+    const sparkle = document.createElement("span");
+    sparkle.className = "sparkle";
+    sparkle.style.left = `${Math.random() * 100}vw`;
+    sparkle.style.top = `${Math.random() * 100}vh`;
+    sparkle.style.animationDelay = `${Math.random() * 6}s`;
+    sparkle.style.animationDuration = `${5 + Math.random() * 4}s`;
+    sparkleField.appendChild(sparkle);
+  }
+}
+
 const wishButton = document.getElementById("wishButton");
 const confettiColors = [
   "#ff5c8d",
