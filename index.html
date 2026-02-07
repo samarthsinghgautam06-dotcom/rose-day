@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rose Day | A Love Note</title>
+    <meta name="description" content="A romantic Rose Day page with animations and a love letter." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Satisfy&family=Source+Sans+3:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient"></div>
+    <div id="petalField" aria-hidden="true"></div>
+
+    <header class="hero" id="top">
+      <div class="hero__content">
+        <p class="badge">Rose Day: <span id="dateText">February 7, 2026</span></p>
+        <h1>
+          Happy Rose Day,
+          <span class="script" id="herName">My Love</span>
+        </h1>
+        <p class="hero__subtitle">
+          A little garden of words, memories, and promises. Just for you.
+        </p>
+        <div class="hero__cta">
+          <button class="btn" data-scroll="#letter">Open the letter</button>
+          <button class="btn btn--ghost" data-scroll="#timeline">Walk our timeline</button>
+        </div>
+      </div>
+      <div class="hero__art" aria-hidden="true">
+        <div class="heart"></div>
+        <div class="glow"></div>
+        <div class="ring"></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section reveal" id="letter">
+        <div class="section__header">
+          <h2>Love Letter</h2>
+          <p>Tap the envelope to open it.</p>
+        </div>
+        <div class="envelope" id="envelope" aria-label="Love letter">
+          <div class="envelope__back"></div>
+          <div class="envelope__letter">
+            <h3>To <span id="herNameInline">My Love</span>,</h3>
+            <p>
+              You are my calm in the chaos, the smile I carry into every day, and the
+              reason ordinary moments feel like magic. Thank you for being the kindest
+              love and the safest home.
+            </p>
+            <p>
+              I love the way you laugh, the way you care, and the way you make me want
+              to be better without ever asking.
+            </p>
+            <p class="signature">Forever yours, <span id="myName">Your Name</span></p>
+          </div>
+          <div class="envelope__front"></div>
+          <div class="envelope__flap"></div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="reasons">
+        <div class="section__header">
+          <h2>Reasons I Choose You</h2>
+          <p>A few petals from a very long list.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <h3>Your Kind Heart</h3>
+            <p>You make the world softer just by being in it.</p>
+          </article>
+          <article class="card">
+            <h3>Your Smile</h3>
+            <p>It is my favorite sunrise.</p>
+          </article>
+          <article class="card">
+            <h3>Our Laughs</h3>
+            <p>Every inside joke is a small universe we built together.</p>
+          </article>
+          <article class="card">
+            <h3>Our Growth</h3>
+            <p>We keep choosing each other and that is everything.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="timeline">
+        <div class="section__header">
+          <h2>Memory Lane</h2>
+          <p>Moments that made my heart say yes.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline__item">
+            <span class="timeline__dot"></span>
+            <div>
+              <h3>The Day We Met</h3>
+              <p>When everything shifted in the sweetest way.</p>
+            </div>
+          </div>
+          <div class="timeline__item">
+            <span class="timeline__dot"></span>
+            <div>
+              <h3>Our First Long Talk</h3>
+              <p>We lost track of time and found each other.</p>
+            </div>
+          </div>
+          <div class="timeline__item">
+            <span class="timeline__dot"></span>
+            <div>
+              <h3>That Perfect Date</h3>
+              <p>The one that still replays in my head.</p>
+            </div>
+          </div>
+          <div class="timeline__item">
+            <span class="timeline__dot"></span>
+            <div>
+              <h3>Today</h3>
+              <p>Still falling, still grateful.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="gallery">
+        <div class="section__header">
+          <h2>Our Little Gallery</h2>
+          <p>Swap in your favorite photos when you are ready.</p>
+        </div>
+        <div class="polaroids">
+          <div class="polaroid">
+            <div class="photo photo--one"></div>
+            <span>First adventure</span>
+          </div>
+          <div class="polaroid">
+            <div class="photo photo--two"></div>
+            <span>That laugh</span>
+          </div>
+          <div class="polaroid">
+            <div class="photo photo--three"></div>
+            <span>Just us</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="rose">
+        <div class="section__header">
+          <h2>A Rose For You</h2>
+          <p>Make a wish, then press the button.</p>
+        </div>
+        <div class="rose-wrap">
+          <svg class="rose" viewBox="0 0 200 260" role="img" aria-label="Rose illustration">
+            <defs>
+              <linearGradient id="roseGradient" x1="0" x2="1">
+                <stop offset="0%" stop-color="#ff5c8d" />
+                <stop offset="100%" stop-color="#b31237" />
+              </linearGradient>
+              <linearGradient id="stemGradient" x1="0" x2="1">
+                <stop offset="0%" stop-color="#2c8a5a" />
+                <stop offset="100%" stop-color="#134e3a" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M100 20c22 0 40 18 40 40 0 15-9 28-22 35 12 3 20 14 20 27 0 16-13 30-30 30-5 0-10-1-14-3 2 6 4 12 4 20 0 22-18 40-40 40s-40-18-40-40c0-16 10-30 24-36-9-5-15-15-15-27 0-17 14-31 31-31 5 0 10 1 14 3-5-7-8-16-8-25 0-22 18-40 40-40z"
+              fill="url(#roseGradient)"
+            />
+            <path
+              d="M100 150c0 28-6 62-6 90h12c0-26 7-60 7-90 0-6-6-12-13-12s-13 6-13 12z"
+              fill="url(#stemGradient)"
+            />
+            <path
+              d="M100 182c-15 10-28 8-42-6 22-4 34-10 42-20M100 200c16 12 30 11 44-5-21-5-34-12-44-24"
+              fill="none"
+              stroke="url(#stemGradient)"
+              stroke-width="6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <button class="btn" id="wishButton">Make a wish</button>
+        </div>
+      </section>
+
+      <section class="section reveal" id="promises">
+        <div class="section__header">
+          <h2>My Promises</h2>
+          <p>Simple, honest, and always yours.</p>
+        </div>
+        <div class="promise-grid">
+          <div class="promise">I will listen with patience and love.</div>
+          <div class="promise">I will celebrate you every day, not just today.</div>
+          <div class="promise">I will keep choosing us, even on hard days.</div>
+          <div class="promise">I will make you feel safe, seen, and adored.</div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="final">
+        <div class="section__header">
+          <h2>One More Thing</h2>
+          <p>Click to reveal a secret message.</p>
+        </div>
+        <div class="secret" id="secret">
+          <button class="btn btn--ghost" id="secretButton">Reveal message</button>
+          <p class="secret__text" id="secretText">
+            You are my forever favorite. Happy Rose Day.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Made with love by <span id="myNameFooter">Your Name</span>.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
