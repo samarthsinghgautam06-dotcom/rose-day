@@ -46,6 +46,13 @@ body {
   z-index: -1;
 }
 
+#loveField {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
 .petal {
   position: absolute;
   width: 16px;
@@ -55,6 +62,38 @@ body {
   opacity: 0.8;
   filter: blur(0.2px);
   animation: petal-fall 10s linear infinite;
+}
+
+.heart-float {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: var(--rose);
+  transform: rotate(45deg);
+  --scale: 1;
+  opacity: 0.75;
+  animation: heart-float 12s ease-in-out infinite;
+  filter: drop-shadow(0 6px 10px rgba(179, 18, 55, 0.25));
+}
+
+.heart-float::before,
+.heart-float::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: var(--rose);
+  border-radius: 50%;
+}
+
+.heart-float::before {
+  top: -7px;
+  left: 0;
+}
+
+.heart-float::after {
+  left: -7px;
+  top: 0;
 }
 
 @keyframes petal-fall {
@@ -67,6 +106,27 @@ body {
   }
   100% {
     transform: translate3d(10vw, 110vh, 0) rotate(200deg);
+    opacity: 0;
+  }
+}
+
+@keyframes heart-float {
+  0% {
+    transform: translate3d(0, 110vh, 0) scale(var(--scale)) rotate(45deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate3d(12vw, 40vh, 0)
+      scale(calc(var(--scale) + 0.15))
+      rotate(45deg);
+  }
+  100% {
+    transform: translate3d(-8vw, -10vh, 0)
+      scale(calc(var(--scale) - 0.05))
+      rotate(45deg);
     opacity: 0;
   }
 }
@@ -241,6 +301,34 @@ main {
   font-family: "Playfair Display", serif;
   font-size: clamp(2rem, 3.2vw, 3rem);
   margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+.section__header h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 60%;
+  height: 3px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: linear-gradient(120deg, var(--rose), var(--accent));
+  opacity: 0.7;
+  animation: underline-glow 4s ease-in-out infinite;
+}
+
+@keyframes underline-glow {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translateX(-50%) scaleX(0.9);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translateX(-50%) scaleX(1.05);
+  }
 }
 
 .section__header p {
@@ -298,6 +386,24 @@ main {
   background: var(--rose-dark);
   border-radius: 50%;
   box-shadow: 0 0 0 6px rgba(255, 92, 141, 0.2);
+  animation: dot-pulse 3s ease-in-out infinite;
+}
+
+.timeline__date {
+  margin: 6px 0 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(179, 18, 55, 0.8);
+}
+
+@keyframes dot-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
 }
 
 .polaroids {
@@ -313,20 +419,34 @@ main {
   padding: 12px 12px 20px;
   border-radius: 12px;
   box-shadow: 0 18px 40px rgba(32, 22, 32, 0.2);
-  transform: rotate(-2deg);
+  --tilt: -2deg;
+  transform: rotate(var(--tilt));
   transition: transform 0.3s ease;
+  animation: float-card 6s ease-in-out infinite;
 }
 
 .polaroid:nth-child(2) {
-  transform: rotate(2deg);
+  --tilt: 2deg;
+  animation-delay: 0.4s;
 }
 
 .polaroid:nth-child(3) {
-  transform: rotate(-4deg);
+  --tilt: -4deg;
+  animation-delay: 0.8s;
 }
 
 .polaroid:hover {
   transform: rotate(0deg) translateY(-6px);
+}
+
+@keyframes float-card {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--tilt));
+  }
+  50% {
+    transform: translateY(-6px) rotate(var(--tilt));
+  }
 }
 
 .photo {

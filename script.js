@@ -70,6 +70,21 @@ if (petalField) {
   }
 }
 
+const loveField = document.getElementById("loveField");
+const heartCount = 14;
+if (loveField) {
+  for (let i = 0; i < heartCount; i += 1) {
+    const heart = document.createElement("span");
+    heart.className = "heart-float";
+    heart.style.left = `${Math.random() * 100}vw`;
+    heart.style.animationDelay = `${Math.random() * 10}s`;
+    heart.style.animationDuration = `${10 + Math.random() * 8}s`;
+    heart.style.opacity = `${0.35 + Math.random() * 0.5}`;
+    heart.style.setProperty("--scale", `${0.7 + Math.random() * 0.8}`);
+    loveField.appendChild(heart);
+  }
+}
+
 const wishButton = document.getElementById("wishButton");
 const confettiColors = [
   "#ff5c8d",
